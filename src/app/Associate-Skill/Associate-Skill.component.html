@@ -5,15 +5,25 @@
     <div class='card-body'>
         <div class='row'>
             <div class='col-md-2'>Name: </div>
-            <div class='col-md-4'>
+            <div class='col-md-2'>
                 <input type='text' [(ngModel)]="Name"/>
+            </div>
+            <div class="col-md-2">
+                <button class='btn btn-primary' (click)="GetSearchResultByName()">
+                    Search by Name
+                </button>
             </div>
         </div>
         <br/>
         <div class='row'>
             <div class='col-md-2'>AssociateID: </div>
-            <div class='col-md-4'>
+            <div class='col-md-2'>
                 <input type='text' [(ngModel)]="AssociateID"/>
+            </div>
+            <div class="col-md-2">
+                <button class='btn btn-primary' (click)="GetSearchResultByAID()">
+                    Search by Associate ID
+                </button>
             </div>
         </div>
         <br/>
@@ -29,8 +39,8 @@
             
         </div>
             <div class="col-md-2">
-                <button class='btn btn-primary'>
-                    Search
+                <button class='btn btn-primary' (click)="GetSearchResult()">
+                    Get All Details
                 </button>
             </div>
             <div class="col-md-2">
@@ -58,10 +68,10 @@
             </thead>
             <tbody>
                <tr *ngFor="let item of filterAssociateSkills">
-                   <td>{{item.Name}}</td>
-                   <td>{{item.AssociateID}}</td>
-                   <td>{{item.SkillID}}</td>
-                   <td>{{item.MobileNumber}}</td>
+                   <td>{{item.name}}</td>
+                   <td>{{item.associateID}}</td>
+                   <td>{{item.skillID}}</td>
+                   <td>{{item.mobileNumber}}</td>
                    <td>{{item.email}}</td>
                </tr>
             </tbody>

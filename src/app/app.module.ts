@@ -4,13 +4,14 @@ import {FormsModule} from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { AssociateSkillComponent } from './Associate-Skill/Associate-Skill.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent, AssociateSkillComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent, AssociateSkillComponent]

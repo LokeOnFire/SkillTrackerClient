@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AssociateSkillServices } from './Associate-Skill.Service';
 import { IAssociateSkill } from './AssociateSkill';
 
@@ -8,7 +9,7 @@ import { IAssociateSkill } from './AssociateSkill';
     providers:[AssociateSkillServices]
 })
 
-export class AssociateSkillComponent implements OnInit{
+export class AssociateSkillComponent implements OnInit, OnDestroy {
 
 
     constructor(private associateskillservice: AssociateSkillServices){
@@ -16,8 +17,15 @@ export class AssociateSkillComponent implements OnInit{
     }
 
     pageTitle: string = 'Associate Skill';
-    
+    errorMessage:string='';
     private _name: string ='';
+    private _associateId: string ='';
+    private _skillId: string ='';
+    private _monilenumner: string ='';
+    private _email: string ='';
+    sub!:Subscription;
+
+
     get Name(): string {
         return this._name;
     }
@@ -26,7 +34,7 @@ export class AssociateSkillComponent implements OnInit{
         this.filterAssociateSkills = this.performfilter(value);
     }
 
-    private _associateId: string ='';
+    
     get AssociateID(): string {
         return this._associateId;
     }
@@ -34,7 +42,7 @@ export class AssociateSkillComponent implements OnInit{
         this._associateId = value;
     }
 
-    private _skillId: string ='';
+    
     get SkillID(): string {
         return this._skillId;
     }
@@ -43,7 +51,7 @@ export class AssociateSkillComponent implements OnInit{
     
     }
 
-    private _monilenumner: string ='';
+   
     get MobileNumber(): string {
         return this._monilenumner;
     }
@@ -51,7 +59,7 @@ export class AssociateSkillComponent implements OnInit{
         this._monilenumner = value;
     }
 
-    private _email: string ='';
+   
     get email(): string {
         return this._email;
     }
@@ -65,20 +73,48 @@ export class AssociateSkillComponent implements OnInit{
 
     ngOnInit():void{
         console.log('on init');
-        this.Name = '';
-        this.AssociateID = '';
-        this.SkillID = '1';
-        this.AssociateSkills = this.associateskillservice.getAssociateSkills();
-        this.filterAssociateSkills = this.AssociateSkills;
-        
+    }
+
+    ngOnDestroy(){
+        this.sub.unsubscribe();
     }
 
     performfilter(name: string): IAssociateSkill[] {
-        name = name.toLocaleLowerCase();
-        return this.AssociateSkills.filter((associate: IAssociateSkill) => associate.Name.toLocaleLowerCase().includes(name));
+        // name = name.toLocaleLowerCase();
+        // return this.AssociateSkills.filter((associate: IAssociateSkill) => associate.name.toLocaleLowerCase().includes(name));
+        return this.AssociateSkills;
+    }
+
+    GetSearchResult(){
+        this.sub = this.associateskillservice.getAssociateSkills('all').subscribe({
+            next: associdateskills => {
+                this.AssociateSkills = associdateskills;
+                this.filterAssociateSkills = this.AssociateSkills;
+            },
+            error: err => this.errorMessage = err
+        });
     }
     
+
+    GetSearchResultByName(){
+        this.sub = this.associateskillservice.getAssociateSkills('name/'+this.Name).subscribe({
+            next: associdateskills => {
+                this.AssociateSkills = associdateskills;
+                this.filterAssociateSkills = this.AssociateSkills;
+            },
+            error: err => this.errorMessage = err
+        });
+}
+
+GetSearchResultByAID(){
+    this.sub = this.associateskillservice.getAssociateSkills('Id/'+this.AssociateID).subscribe({
+        next: associdateskills => {
+            this.AssociateSkills = associdateskills;
+            this.filterAssociateSkills = this.AssociateSkills;
+        },
+        error: err => this.errorMessage = err
+    });
 }
 
 
-
+}

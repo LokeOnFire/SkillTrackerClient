@@ -1,7 +1,7 @@
 export interface IAssociateSkill{
-    Name: string,
-    AssociateID: string,
-    SkillID: string,
-    MobileNumber: string,
+    name: string,
+    associateID: string,
+    skillID: string,
+    mobileNumber: string,
     email:string
 }
