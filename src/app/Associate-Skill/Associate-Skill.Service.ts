@@ -8,7 +8,7 @@ import {catchError, tap} from 'rxjs/operators';
     providedIn:'root'
 })
 export class AssociateSkillServices{
-    private associateskillURL = 'http://localhost:5000/SkillSearch/api/v1/admin/';
+    private associateskillURL = 'http://localhost:8000/SkillSearch/api/v1/admin/';
 
     constructor(private http: HttpClient){}
 
