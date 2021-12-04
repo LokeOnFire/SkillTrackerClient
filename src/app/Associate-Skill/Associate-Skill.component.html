@@ -22,15 +22,34 @@
             </div>
             <div class="col-md-2">
                 <button class='btn btn-primary' (click)="GetSearchResultByAID()">
-                    Search by Associate ID
+                    Search by ID
                 </button>
             </div>
         </div>
         <br/>
         <div class='row'>
             <div class='col-md-2'>Skill: </div>
-            <div class='col-md-4'>
+            <div class='col-md-2'>
                 <input type='text' [(ngModel)]="SkillID"/>
+            </div>
+            <div class="col-md-2">
+                <button class='btn btn-primary' (click)="GetSearchResultBySkill()">
+                    Search by Skill
+                </button>
+            </div>
+        </div>
+        <br/>
+        <div class='row'>
+            <div class='col-md-2'>Mobile: </div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]="MobileNumber"/>
+            </div>
+        </div>
+        <br/>
+        <div class='row'>
+            <div class='col-md-2'>email: </div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]="email"/>
             </div>
         </div>
     </div>
@@ -44,35 +63,38 @@
                 </button>
             </div>
             <div class="col-md-2">
-                <button class='btn btn-primary'>
-                    Add
+                <button class='btn btn-primary' (click)="AddDetails()">
+                    Add Skill Details
                 </button>
             </div>
-            <!-- <div class="col-md-2">
-                <button class='btn btn-primary'>
-                    Update
-                </button>
-            </div> -->
-        
+       
     </div>
     <div class='table-responsive'>
         <table class='table' *ngIf="AssociateSkills.length" >
             <thead>
                 <tr>
+                    
                     <th>Name</th>
                     <th>Associate ID</th>
                     <th>Skill</th>
                     <th>Mobile</th>
                     <th>Email</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                <tr *ngFor="let item of filterAssociateSkills">
+                
                    <td>{{item.name}}</td>
                    <td>{{item.associateID}}</td>
                    <td>{{item.skillID}}</td>
                    <td>{{item.mobileNumber}}</td>
                    <td>{{item.email}}</td>
+                   <td>
+                    <a [routerLink]="['/update',item.id]">
+                        Update Skill
+                    </a>
+                   </td>
                </tr>
             </tbody>
         </table>

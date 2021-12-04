@@ -4,7 +4,6 @@ import { AssociateSkillServices } from './Associate-Skill.Service';
 import { IAssociateSkill } from './AssociateSkill';
 
 @Component({
-    selector:'app-skill',
     templateUrl:'./Associate-Skill.component.html',
     providers:[AssociateSkillServices]
 })
@@ -71,12 +70,14 @@ export class AssociateSkillComponent implements OnInit, OnDestroy {
 
     AssociateSkills:IAssociateSkill[] = []; 
 
+   
+
     ngOnInit():void{
         console.log('on init');
     }
 
     ngOnDestroy(){
-        this.sub.unsubscribe();
+        //this.sub.unsubscribe();
     }
 
     performfilter(name: string): IAssociateSkill[] {
@@ -115,6 +116,39 @@ GetSearchResultByAID(){
         error: err => this.errorMessage = err
     });
 }
+
+GetSearchResultBySkill()
+{
+    this.sub = this.associateskillservice.getAssociateSkills('skill/'+this.SkillID).subscribe({
+        next: associdateskills => {
+            this.AssociateSkills = associdateskills;
+            this.filterAssociateSkills = this.AssociateSkills;
+        },
+        error: err => this.errorMessage = err
+    });
+}
+
+associateAddSkill:IAssociateSkill; 
+
+AddDetails()
+{
+    this.associateAddSkill = 
+                {
+                    name:this.Name, 
+                    associateID:this.AssociateID, 
+                    skillID:this.SkillID, 
+                    mobileNumber: this.MobileNumber, 
+                    email:this.email,
+                    id:null
+                }
+
+
+    this.associateskillservice.AddSkillDetails(this.associateAddSkill).subscribe({
+        next:result => { },
+        error: err => this.errorMessage = err
+    })
+}
+
 
 
 }

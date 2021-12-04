@@ -3,5 +3,6 @@ export interface IAssociateSkill{
     associateID: string,
     skillID: string,
     mobileNumber: string,
-    email:string
+    email:string,
+    id:string
 }

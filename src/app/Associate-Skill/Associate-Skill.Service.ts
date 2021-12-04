@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { IAssociateSkill } from "./AssociateSkill";
@@ -8,18 +8,60 @@ import {catchError, tap} from 'rxjs/operators';
     providedIn:'root'
 })
 export class AssociateSkillServices{
-    private associateskillURL = 'http://localhost:8000/SkillSearch/api/v1/admin/';
+    private associateskillSearchURL = 'http://localhost:8000/SkillSearch/api/v1/admin/';
+    private associateskillAddURL = 'http://localhost:8001/SkillAdd/api/vi/engineer/add-profile';
+    private associateskillUpdateURL = 'http://localhost:8002/SkillUpdate/api/vi/engineer/update-profile';
 
     constructor(private http: HttpClient){}
 
     getAssociateSkills(input:string): Observable<IAssociateSkill[]>{
         console.log(input);
-        return this.http.get<IAssociateSkill[]>(this.associateskillURL + input).pipe(
+        return this.http.get<IAssociateSkill[]>(this.associateskillSearchURL + input).pipe(
             tap(data => console.log('All', JSON.stringify(data))),
             catchError(this.handleError)
         );
         
     }
+
+    getAssociateSkillByID(input:string): Observable<IAssociateSkill>{
+        console.log(input);
+        return this.http.get<IAssociateSkill>(this.associateskillSearchURL + input).pipe(
+            tap(data => console.log('All', JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+        
+    }
+
+    AddSkillDetails(input:IAssociateSkill): Observable<any>{
+        console.log(JSON.stringify(input));
+
+        let httpHeaders = new HttpHeaders({
+            'Content-Type' : 'application/json',
+            'Cache-Control': 'no-cache'
+        });
+        
+        return this.http.post<any>(this.associateskillAddURL,input,{ headers: httpHeaders }).pipe(
+            tap(data => console.log('All', JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+        
+    }
+
+    UpdateSkillDetails(input:IAssociateSkill): Observable<any>{
+        console.log(JSON.stringify(input));
+
+        let httpHeaders = new HttpHeaders({
+            'Content-Type' : 'application/json',
+            'Cache-Control': 'no-cache'
+        });
+        
+        return this.http.put<any>(this.associateskillUpdateURL,input,{ headers: httpHeaders }).pipe(
+            tap(data => console.log('All', JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+        
+    }
+
 
     private handleError(err: HttpErrorResponse)
     {

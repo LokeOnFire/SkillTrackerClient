@@ -1,0 +1,58 @@
+<div class='card'>
+    <div class="card-header">
+        <h1>Associate Skill Update</h1>
+        {{updateStatus}}
+    </div>
+    <div class='card-body'>
+        <div class='row'>
+            <div class='col-md-2'>Id: </div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]="Id" readonly/>
+            </div>
+        </div>
+        <br/>
+        <div class='row'>
+            <div class='col-md-2'>Name: </div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]="Name"/>
+            </div>
+        </div>
+        <br/>
+        <div class='row'>
+            <div class='col-md-2'>AssociateID: </div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]="AssociateID"/>
+            </div>
+        </div>
+        <br/>
+        <div class='row'>
+            <div class='col-md-2'>Skill: </div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]="SkillID"/>
+            </div>
+
+        </div>
+        <br/>
+        <div class='row'>
+            <div class='col-md-2'>Mobile: </div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]="MobileNumber"/>
+            </div>
+        </div>
+        <br/>
+        <div class='row'>
+            <div class='col-md-2'>email: </div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]="email"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+            <div class="col-md-2">
+                <button class='btn btn-primary' (click)="UpdateDetails()">
+                    Update Skill Details
+                </button>
+            </div>
+    </div>
+</div>
