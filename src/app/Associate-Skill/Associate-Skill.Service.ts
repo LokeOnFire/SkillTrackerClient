@@ -8,9 +8,9 @@ import {catchError, tap} from 'rxjs/operators';
     providedIn:'root'
 })
 export class AssociateSkillServices{
-    private associateskillSearchURL = 'http://localhost:8000/SkillSearch/api/v1/admin/';
-    private associateskillAddURL = 'http://localhost:8001/SkillAdd/api/vi/engineer/add-profile';
-    private associateskillUpdateURL = 'http://localhost:8002/SkillUpdate/api/vi/engineer/update-profile';
+    private associateskillSearchURL = 'http://ec2-44-195-61-90.compute-1.amazonaws.com:8000/SkillSearch/api/v1/admin/';
+    private associateskillAddURL = 'http://ec2-44-195-61-90.compute-1.amazonaws.com:8001/SkillAdd/api/vi/engineer/add-profile';
+    private associateskillUpdateURL = 'http://ec2-44-195-61-90.compute-1.amazonaws.com:8002/SkillUpdate/api/vi/engineer/update-profile';
 
     constructor(private http: HttpClient){}
 
