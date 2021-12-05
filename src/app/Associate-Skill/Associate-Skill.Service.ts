@@ -40,7 +40,8 @@ export class AssociateSkillServices{
 
         let httpHeaders = new HttpHeaders({
             'Content-Type' : 'application/json',
-            'Cache-Control': 'no-cache'
+            'Cache-Control': 'no-cache',
+            'Access-Control-Allow-Origin': '*',
         });
         
         return this.http.post<any>(this.associateskillAddURL,input,{ headers: httpHeaders }).pipe(
@@ -55,7 +56,8 @@ export class AssociateSkillServices{
 
         let httpHeaders = new HttpHeaders({
             'Content-Type' : 'application/json',
-            'Cache-Control': 'no-cache'
+            'Cache-Control': 'no-cache',
+            'Access-Control-Allow-Origin': '*',
         });
         
         return this.http.put<any>(this.associateskillUpdateURL,input,{ headers: httpHeaders }).pipe(
