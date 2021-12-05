@@ -8,10 +8,12 @@ import {catchError, tap} from 'rxjs/operators';
     providedIn:'root'
 })
 export class AssociateSkillServices{
-    //private associateskillSearchURL = 'https://ey6d7tesol.execute-api.us-east-1.amazonaws.com/dev/';
-    private associateskillSearchURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillSearch/api/v1/admin/';
-    private associateskillAddURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillAdd/api/vi/engineer/add-profile';
-    private associateskillUpdateURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillUpdate/api/vi/engineer/update-profile';
+    // private associateskillSearchURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillSearch/api/v1/admin/';
+    // private associateskillAddURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillAdd/api/vi/engineer/add-profile';
+    // private associateskillUpdateURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillUpdate/api/vi/engineer/update-profile';
+    private associateskillSearchURL = 'http://ec2-54-152-66-167.compute-1.amazonaws.com:8000/SkillSearch/api/v1/admin/';
+    private associateskillAddURL = 'http://ec2-54-152-66-167.compute-1.amazonaws.com:8001/SkillAdd/api/vi/engineer/add-profile';
+    private associateskillUpdateURL = 'http://ec2-54-152-66-167.compute-1.amazonaws.com:8002/SkillUpdate/api/vi/engineer/update-profile';
 
     constructor(private http: HttpClient){}
 
