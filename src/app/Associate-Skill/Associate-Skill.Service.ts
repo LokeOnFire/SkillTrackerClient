@@ -12,9 +12,9 @@ export class AssociateSkillServices{
     // private associateskillAddURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillAdd/api/vi/engineer/add-profile';
     // private associateskillUpdateURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillUpdate/api/vi/engineer/update-profile';
 
-    private associateskillSearchURL = 'http://ec2-107-20-89-236.compute-1.amazonaws.com:8000/SkillSearch/api/v1/admin/';
-    private associateskillAddURL = 'http://ec2-107-20-89-236.compute-1.amazonaws.com:8001/SkillAdd/api/vi/engineer/add-profile';
-    private associateskillUpdateURL = 'http://ec2-107-20-89-236.compute-1.amazonaws.com:8002/SkillUpdate/api/vi/engineer/update-profile';
+    private associateskillSearchURL = 'http://54.227.82.83:8000/SkillSearch/api/v1/admin/';
+    private associateskillAddURL = 'http://54.227.82.83:8001/SkillAdd/api/vi/engineer/add-profile';
+    private associateskillUpdateURL = 'http://54.227.82.83:8002/SkillUpdate/api/vi/engineer/update-profile';
 
     // private associateskillSearchURL = 'http://localhost:8000/SkillSearch/api/v1/admin/';
     // private associateskillAddURL = 'http://localhost:8001/SkillAdd/api/vi/engineer/add-profile';
