@@ -8,13 +8,13 @@ import {catchError, tap} from 'rxjs/operators';
     providedIn:'root'
 })
 export class AssociateSkillServices{
-    // private associateskillSearchURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillSearch/api/v1/admin/';
-    // private associateskillAddURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillAdd/api/vi/engineer/add-profile';
-    // private associateskillUpdateURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillUpdate/api/vi/engineer/update-profile';
+    private associateskillSearchURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillSearch/api/v1/admin/';
+    private associateskillAddURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillAdd/api/vi/engineer/add-profile';
+    private associateskillUpdateURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillUpdate/api/vi/engineer/update-profile';
 
-    private associateskillSearchURL = 'http://54.227.82.83:8000/SkillSearch/api/v1/admin/';
-    private associateskillAddURL = 'http://54.227.82.83:8001/SkillAdd/api/vi/engineer/add-profile';
-    private associateskillUpdateURL = 'http://54.227.82.83:8002/SkillUpdate/api/vi/engineer/update-profile';
+    // private associateskillSearchURL = 'http://54.227.82.83:8000/SkillSearch/api/v1/admin/';
+    // private associateskillAddURL = 'http://54.227.82.83:8001/SkillAdd/api/vi/engineer/add-profile';
+    // private associateskillUpdateURL = 'http://54.227.82.83:8002/SkillUpdate/api/vi/engineer/update-profile';
 
     // private associateskillSearchURL = 'http://localhost:8000/SkillSearch/api/v1/admin/';
     // private associateskillAddURL = 'http://localhost:8001/SkillAdd/api/vi/engineer/add-profile';
