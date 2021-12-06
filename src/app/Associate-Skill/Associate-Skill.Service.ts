@@ -11,9 +11,15 @@ export class AssociateSkillServices{
     // private associateskillSearchURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillSearch/api/v1/admin/';
     // private associateskillAddURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillAdd/api/vi/engineer/add-profile';
     // private associateskillUpdateURL = 'https://6rrwjkkv70.execute-api.us-east-1.amazonaws.com/demo/SkillUpdate/api/vi/engineer/update-profile';
-    private associateskillSearchURL = 'http://ec2-54-152-66-167.compute-1.amazonaws.com:8000/SkillSearch/api/v1/admin/';
-    private associateskillAddURL = 'http://ec2-54-152-66-167.compute-1.amazonaws.com:8001/SkillAdd/api/vi/engineer/add-profile';
-    private associateskillUpdateURL = 'http://ec2-54-152-66-167.compute-1.amazonaws.com:8002/SkillUpdate/api/vi/engineer/update-profile';
+
+    private associateskillSearchURL = 'http://ec2-107-20-89-236.compute-1.amazonaws.com:8000/SkillSearch/api/v1/admin/';
+    private associateskillAddURL = 'http://ec2-107-20-89-236.compute-1.amazonaws.com:8001/SkillAdd/api/vi/engineer/add-profile';
+    private associateskillUpdateURL = 'http://ec2-107-20-89-236.compute-1.amazonaws.com:8002/SkillUpdate/api/vi/engineer/update-profile';
+
+    // private associateskillSearchURL = 'http://localhost:8000/SkillSearch/api/v1/admin/';
+    // private associateskillAddURL = 'http://localhost:8001/SkillAdd/api/vi/engineer/add-profile';
+    // private associateskillUpdateURL = 'http://localhost:8002/SkillUpdate/api/vi/engineer/update-profile';
+
 
     constructor(private http: HttpClient){}
 
@@ -40,8 +46,7 @@ export class AssociateSkillServices{
 
         let httpHeaders = new HttpHeaders({
             'Content-Type' : 'application/json',
-            'Cache-Control': 'no-cache',
-            'Access-Control-Allow-Origin': '*',
+            'Cache-Control': 'no-cache'
         });
         
         return this.http.post<any>(this.associateskillAddURL,input,{ headers: httpHeaders }).pipe(
@@ -56,8 +61,7 @@ export class AssociateSkillServices{
 
         let httpHeaders = new HttpHeaders({
             'Content-Type' : 'application/json',
-            'Cache-Control': 'no-cache',
-            'Access-Control-Allow-Origin': '*',
+            'Cache-Control': 'no-cache'
         });
         
         return this.http.put<any>(this.associateskillUpdateURL,input,{ headers: httpHeaders }).pipe(
